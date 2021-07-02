@@ -88,7 +88,7 @@ const RegisterForm = (props) => {
     event.preventDefault();
 
     if (isEmailValid & isPasswordValid) {
-      console.log("success");
+      console.log("success: ", email);
       props.handelSubmit(email, password);
     } else {
       console.log("error");

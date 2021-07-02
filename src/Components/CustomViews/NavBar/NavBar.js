@@ -29,8 +29,14 @@ const NavBar = () => {
               SignIn
             </Link>
           </div>
+
           <div className="NavItem">
-            <Link className="NavLinks" onClick={handleLogout}>
+            <Link className="NavLinks" to="/info">
+              Profile
+            </Link>
+          </div>
+          <div className="NavItem">
+            <Link to="/" className="NavLinks" onClick={handleLogout}>
               Logout
             </Link>
           </div>

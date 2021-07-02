@@ -21,7 +21,7 @@ function SignUp() {
 
   async function handelSubmit(email, password) {
     // e.preventDefault();
-    console.log("email", email, "pass", password);
+    console.log("handle sign up");
     try {
       setLoading(true);
       setError("");
