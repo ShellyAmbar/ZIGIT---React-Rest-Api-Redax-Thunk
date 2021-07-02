@@ -6,48 +6,10 @@ import {
   SIGN_UP_ERROR,
   LOGOUT_ERROR,
   LOGOUT_SUCCESS,
-  USER_LOADED,
-  USER_LOADING,
 } from "./Types";
 
 const BASE_URL =
   "https://private-052d6-testapi4528.apiary-mock.com/authenticate";
-
-function setLoginSuccess(data) {
-  return {
-    type: SIGN_IN_SUCCESS,
-  };
-}
-
-function setLoginError(error) {
-  return {
-    type: SIGN_IN_ERROR,
-  };
-}
-
-function setSignupSuccess() {
-  return {
-    type: SIGN_UP_SUCCESS,
-  };
-}
-
-function setSignupError() {
-  return {
-    type: SIGN_UP_ERROR,
-  };
-}
-
-function setLogoutSuccess() {
-  return {
-    type: SIGN_UP_SUCCESS,
-  };
-}
-
-function setLogoutError() {
-  return {
-    type: SIGN_UP_ERROR,
-  };
-}
 
 export const login = (email, password) => {
   return (dispatch) => {

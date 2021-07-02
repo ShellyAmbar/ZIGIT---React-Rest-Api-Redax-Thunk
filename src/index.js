@@ -3,31 +3,15 @@ import { render } from "react-dom";
 import "./index.css";
 import App from "./App";
 
-import { BrowserRouter as Router } from "react-router-dom";
-
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import routes from "./routes";
-import rootReducer from "./Redux/Reducers";
-import {
-  signIn,
-  signUp,
-  loadUser,
-  logout,
-} from "./Redux/Actions/RegisterationActions";
+import Routes from "./Routes";
 
-// use applyMiddleware to add the thunk middleware to the store
-const store = createStore(rootReducer, applyMiddleware(thunk));
-
+import store from "./Redux/Store";
 
 render(
   <Provider store={store}>
-    <Router>
-      <routes />
-      <App />
-    </Router>
+    <App />
   </Provider>,
   document.getElementById("root")
 );

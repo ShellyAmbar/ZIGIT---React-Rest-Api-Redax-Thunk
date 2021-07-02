@@ -2,9 +2,10 @@ import React from "react";
 import HomePage from "./Components/Pages/HomePage/HomePage";
 import SignInPage from "./Components/Pages/Registeration/SignIn/SignIn";
 import SignUpPage from "./Components/Pages/Registeration/SignUp/SignUp";
-import { Switch, Route } from "react-router-dom";
+import ProfilePage from "./Components/Pages/ProfilePage/ProfilePage";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-const routes = () => {
+const Routes = () => {
   return (
     <Switch>
       <Route path="/SignUp">
@@ -13,6 +14,9 @@ const routes = () => {
       <Route path="/SignIn">
         <SignInPage />
       </Route>
+      <Route path="/Profile">
+        <ProfilePage />
+      </Route>
       <Route path="/">
         <HomePage />
       </Route>
@@ -20,4 +24,4 @@ const routes = () => {
   );
 };
 
-export default routes;
+export default Routes;
