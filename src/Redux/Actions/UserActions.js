@@ -1,12 +1,5 @@
 import axios from "axios";
-import {
-  SIGN_IN_SUCCESS,
-  SIGN_IN_ERROR,
-  SIGN_UP_SUCCESS,
-  SIGN_UP_ERROR,
-  LOGOUT_ERROR,
-  LOGOUT_SUCCESS,
-} from "./Types";
+import { FETCH_USER_DATA_SUCCESS, FETCH_USER_DATA_ERROR } from "./Types";
 
 const BASE_URL = "https://private-052d6-testapi4528.apiary-mock.com/info";
 
@@ -31,13 +24,13 @@ export const getUserProjects = () => {
         console.log(JSONres);
         //dispatch the action
         dispatch({
-          type: SIGN_IN_SUCCESS,
+          type: FETCH_USER_DATA_SUCCESS,
           payload: JSONres,
         });
       })
       .catch((err) => {
         dispatch({
-          type: SIGN_IN_ERROR,
+          type: FETCH_USER_DATA_ERROR,
           payload: "Failed.",
         });
       });

@@ -22,9 +22,10 @@ function SignIn(props) {
       setLoading(true);
       setError("");
       props.login(email, password);
+      console.log("data: ", props.personalDetailes);
       if (props.personalDetailes) {
         setSuccess("Login with success!");
-        history.push("/Profile");
+        history.push("/info");
       }
     } catch {
       setError("Failed to login");

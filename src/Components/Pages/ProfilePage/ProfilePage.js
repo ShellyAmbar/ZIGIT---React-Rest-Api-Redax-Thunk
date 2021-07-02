@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import ProjectCard from "../../CustomViews/NavBar/ProjectCard/ProjectCard";
 import { getUserProjects } from "../../../Redux/Actions/UserActions";
-import { projects } from "./projects";
+
 import { connect } from "react-redux";
 import "./ProfilePage.css";
 const ProfilePage = (props) => {
@@ -11,14 +11,14 @@ const ProfilePage = (props) => {
 
   useEffect(() => {
     props.getUserProjects();
-  });
+  }, []);
 
   return (
     <div className="containerProfile">
-      {props.userData != null && (
+      {props.projects != null && props.data != null && (
         <Grid container justify="center" spacing={3}>
-          {props.userData.map((value) => (
-            <Grid key={value} item>
+          {props.projects.map((value) => (
+            <Grid key={value.id} item>
               <ProjectCard
                 title={value.name}
                 description={`Score: ${value.score}, durationInDays:
@@ -36,8 +36,9 @@ const ProfilePage = (props) => {
 const mapStateToProps = (state) => {
   console.log("global state", state);
   return {
-    userData: state.auth.personalDetailes,
-    errorMassage: state.auth.errorMassage,
+    projects: state.user.projects,
+    errorMassage: state.user.errorMassage,
+    data: state.auth.personalDetailes,
   };
 };
 const mapDispatchToProps = (dispatch) => {

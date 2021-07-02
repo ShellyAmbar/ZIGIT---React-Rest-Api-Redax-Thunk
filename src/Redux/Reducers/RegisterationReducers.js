@@ -7,7 +7,7 @@ import {
 } from "../Actions/Types";
 
 const defaultState = {
-  token: "",
+  token: null,
   personalDetailes: null,
   errorMeassage: "",
   isAuthenticated: false,

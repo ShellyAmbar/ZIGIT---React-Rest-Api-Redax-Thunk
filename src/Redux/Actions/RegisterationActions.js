@@ -35,6 +35,7 @@ export const login = (email, password) => {
       .then((JSONres) => {
         console.log(JSONres);
         //dispatch the action
+        console.log("token", JSONres.token);
         dispatch({
           type: SIGN_IN_SUCCESS,
           payload: JSONres,

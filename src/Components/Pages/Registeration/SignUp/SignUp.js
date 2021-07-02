@@ -30,7 +30,7 @@ function SignUp(props) {
       if (props.personalDetailes) {
         console.log("personalDetailes", props.personalDetailes);
         setSuccess("signup with success!");
-        history.push("/Profile");
+        history.push("/info");
       }
     } catch {
       setError("Failed to login");
