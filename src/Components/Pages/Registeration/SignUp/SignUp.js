@@ -9,7 +9,7 @@ import { signUp } from "../../../../Redux/Actions/RegisterationActions";
 
 import "./SignUp.css";
 
-function SignUp() {
+function SignUp(props) {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmationRef = useRef();
@@ -25,11 +25,13 @@ function SignUp() {
     try {
       setLoading(true);
       setError("");
-      await this.props.signup(email, password);
+      props.signup(email, password);
 
-      setSuccess("Login with success!");
-
-      history.push("/Profile");
+      if (props.personalDetailes) {
+        console.log("personalDetailes", props.personalDetailes);
+        setSuccess("signup with success!");
+        history.push("/Profile");
+      }
     } catch {
       setError("Failed to login");
       setSuccess("");
@@ -50,7 +52,8 @@ function SignUp() {
 const mapStateToProps = (state) => {
   console.log("global state", state);
   return {
-    userData: state.auth.personalDetailes,
+    ...state,
+    personalDetailes: state.auth.personalDetailes,
     errorMassage: state.auth.errorMassage,
   };
 };

@@ -17,7 +17,7 @@ const ProfilePage = (props) => {
     <div className="containerProfile">
       {props.userData != null && (
         <Grid container justify="center" spacing={3}>
-          {this.props.userData.map((value) => (
+          {props.userData.map((value) => (
             <Grid key={value} item>
               <ProjectCard
                 title={value.name}

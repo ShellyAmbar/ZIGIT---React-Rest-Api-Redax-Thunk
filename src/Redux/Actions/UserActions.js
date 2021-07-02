@@ -18,7 +18,10 @@ export const getUserProjects = () => {
     })
       .then((response) => {
         console.log(response, "response projects");
-        if (response.status === 200 && response.ok === true) {
+        if (
+          (response.status === 200 || response.status === 201) &&
+          response.ok === true
+        ) {
           return response.json();
         } else {
           throw new Error("Something went wrong");

@@ -7,7 +7,7 @@ import "./SignIn.css";
 import { connect } from "react-redux";
 import { login } from "../../../../Redux/Actions/RegisterationActions";
 
-function SignIn() {
+function SignIn(props) {
   const history = useHistory();
 
   // const { login, currentUser } = useAuth();
@@ -21,11 +21,11 @@ function SignIn() {
     try {
       setLoading(true);
       setError("");
-      await this.props.login(email, password);
-
-      setSuccess("Login with success!");
-
-      history.push("/Profile");
+      props.login(email, password);
+      if (props.personalDetailes) {
+        setSuccess("Login with success!");
+        history.push("/Profile");
+      }
     } catch {
       setError("Failed to login");
       setSuccess("");
@@ -45,7 +45,8 @@ function SignIn() {
 const mapStateToProps = (state) => {
   console.log("global state", state);
   return {
-    userData: state.auth.personalDetailes,
+    ...state,
+    personalDetailes: state.auth.personalDetailes,
     errorMassage: state.auth.errorMassage,
   };
 };

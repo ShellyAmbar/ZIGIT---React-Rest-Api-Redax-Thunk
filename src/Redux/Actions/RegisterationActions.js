@@ -23,7 +23,10 @@ export const login = (email, password) => {
     })
       .then((response) => {
         console.log(response, "Response login");
-        if (response.status === 200 && response.ok === true) {
+        if (
+          (response.status === 200 || response.status === 201) &&
+          response.ok === true
+        ) {
           return response.json();
         } else {
           throw new Error("Something went wrong");
@@ -58,7 +61,10 @@ export const signUp = (email, password) => {
     })
       .then((response) => {
         console.log(response, "Response signup");
-        if (response.status === 200 && response.ok === true) {
+        if (
+          (response.status === 200 || response.status === 201) &&
+          response.ok === true
+        ) {
           return response.json();
         } else {
           throw new Error("Something went wrong");
