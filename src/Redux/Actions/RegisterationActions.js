@@ -22,11 +22,11 @@ export const login = (email, password) => {
       }),
     })
       .then((response) => {
-        console.log(response, "   Response current weather");
+        console.log(response, "Response login");
         if (response.status === 200 && response.ok === true) {
           return response.json();
         } else {
-          throw new Error("Something went wrong in fetching current weather");
+          throw new Error("Something went wrong");
         }
       })
       .then((JSONres) => {
@@ -40,7 +40,7 @@ export const login = (email, password) => {
       .catch((err) => {
         dispatch({
           type: SIGN_IN_ERROR,
-          payload: "Failed to get the current weather.",
+          payload: "Failed",
         });
       });
   };
@@ -57,11 +57,11 @@ export const signUp = (email, password) => {
       }),
     })
       .then((response) => {
-        console.log(response, "   Response current weather");
+        console.log(response, "Response signup");
         if (response.status === 200 && response.ok === true) {
           return response.json();
         } else {
-          throw new Error("Something went wrong in fetching current weather");
+          throw new Error("Something went wrong");
         }
       })
       .then((JSONres) => {
@@ -75,7 +75,7 @@ export const signUp = (email, password) => {
       .catch((err) => {
         dispatch({
           type: SIGN_UP_ERROR,
-          payload: "Failed to get the current weather.",
+          payload: "Failed.",
         });
       });
   };
@@ -88,11 +88,11 @@ export const logout = () => {
       headers: { "Content-Type": "application/json" },
     })
       .then((response) => {
-        console.log(response, "   Response current weather");
+        console.log(response, "");
         if (response.status === 200 && response.ok === true) {
           return response.json();
         } else {
-          throw new Error("Something went wrong in fetching current weather");
+          throw new Error("Something went wrong");
         }
       })
       .then((JSONres) => {
@@ -106,7 +106,7 @@ export const logout = () => {
       .catch((err) => {
         dispatch({
           type: LOGOUT_ERROR,
-          payload: "Failed to get the current weather.",
+          payload: "Failed.",
         });
       });
   };

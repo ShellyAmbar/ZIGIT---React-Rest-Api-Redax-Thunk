@@ -14,7 +14,7 @@ const Routes = () => {
       <Route path="/SignIn">
         <SignInPage />
       </Route>
-      <Route path="/Profile">
+      <Route path="/info">
         <ProfilePage />
       </Route>
       <Route path="/">
